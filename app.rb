@@ -10,6 +10,10 @@ class App < Sinatra::Base
         erb :form
     end
 
+    get '/game' do
+        erb :game
+    end
+
     post '/Generar' do
         @size = params[:size]
         @positionX = params[:positionX]
