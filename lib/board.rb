@@ -5,26 +5,27 @@ class Board
     def initialize(rows, columns)
         @rows = rows
         @columns = columns
-        @board = Array.new(columns,[])
+        @board = Array.new(@columns)
         initializeBoard()
     end
 
     def initializeBoard()
         for i in (1..@columns) do
+            @board[i] = Array.new(@rows)
             for j in (1..@rows) do
-                @board[i].push(CarWrapper.new(i,j,true))
+                @board[i][j] = (CarWrapper.new(i,j,true))
                 # @board.push(CarWrapper.new(i, j, true))
             end
         end
     end
 
-    def cleanBoard()
-        for i in (1..@columns) do
-            for j in (1..@rows) do
-                @board[i + j].changeWrapperStatus(true)
-            end
-        end
-    end
+    # def cleanBoard()
+    #     for i in (1..@columns) do
+    #         for j in (1..@rows) do
+    #             @board[i + j].changeWrapperStatus(true)
+    #         end
+    #     end
+    # end
 
     def getRows()
         return @rows
@@ -35,26 +36,26 @@ class Board
     end
 
     def isSlotEmpty(colum, row)
-        @board[colum + row].isTheWrapperEmpty()
+        @board[colum][row].isTheWrapperEmpty()
     end
 
     def setPostionForCar(positionX, positionY, direction)
-        @board[positionX + positionY].setCarDirection(direction)
+        @board[positionX][positionY].setCarDirection(direction)
     end
 
     def getCarPositon(positionX, positionY)
-        return @board[positionX + positionY].getDirection()
+        return @board[positionX][positionY].getDirection()
     end
 
     def getCarDirection(positionX, positionY)
-        return @board[positionX + positionY].getCarDirection()
+        return @board[positionX][positionY].getCarDirection()
     end
 
     def getCarFinalPosition()
         for i in (1..@columns) do
             for j in (1..@rows) do
-                if (@board[i + j].isTheWrapperEmpty() == false)
-                    return @board[i + j].getFinalPosition()
+                if (@board[i][j].isTheWrapperEmpty() == false)
+                    return @board[i][j].getFinalPosition()
                 end
             end
         end
