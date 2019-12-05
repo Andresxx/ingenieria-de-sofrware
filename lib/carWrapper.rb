@@ -27,6 +27,7 @@ class CarWrapper
         return @isempty
     end
 
+
     def setCarDirection(direction)
         @isempty = false
         @direction = direction
@@ -34,6 +35,16 @@ class CarWrapper
 
     def getDirection()
         return @direction
+    end
+
+    def activate(dir)
+        @direction = dir
+        @isempty = false
+    end
+
+    def clearData()
+        @direction = ''
+        @isempty = true
     end
 
     def getFinalPosition()

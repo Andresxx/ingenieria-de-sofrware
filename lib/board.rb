@@ -73,6 +73,35 @@ class Board
         return false
     end
 
-    # def move()
+    def moveOnePostionCar()
+        for i in (1..@columns) do
+            for j in (1..@rows) do
+                if (@board[i][j].isTheWrapperEmpty() == false)
+                    move(i, j)
+                end
+            end
+        end
+    end
+
+    def move(row, col)
+        # if (isNotPresentOnTop(col, row))
+        #     @board[row][col].changeWrapperStatus(true)
+        #     @board[row][col - 1].changeWrapperStatus(false)
+        case @board[row][col].getDirection()
+        when 'arriba'
+            @board[row][col].clearData()
+            @board[row - 1][col].activate('arriba')
+        when 'abajo'
+            @board[row][col].clearData()
+            @board[row + 1][col].activate('abajo')
+        when 'derecha'
+            @board[row][col].clearData()
+            @board[row][col + 1].activate('derecha')
+        when 'izquirda'
+            @board[row][col].clearData()
+            @board[row][col - 1].activate('izquirda')
+        end
+        
+    end
 
 end
