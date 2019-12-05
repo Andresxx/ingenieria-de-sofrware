@@ -83,4 +83,20 @@ describe 'Pruebas para encontrar la posicion final de un auto' do
         expect(@board.getCarFinalPosition()).to eq '2-2-abajo'
     end
 end
+
+describe "Pruebas para cambiar direccion de un auto en la posicion '3-3-arriba' a '3-3-abajo'" do
+
+    before :each do |single|
+        @board = Board.new(7, 7)
+        @board.setPostionForCar(3, 3, 'arriba')
+    end
+    
+    it "deberia haber un auto en la posicion 3-3" do
+        expect(@board.isSlotEmpty(3,3)).to eq false
+    end
+
+    it "el auto deberia estar mirando arriba" do
+        expect(@board.getCarPositon(3,3)).to eq 'arriba'
+    end
+end
     

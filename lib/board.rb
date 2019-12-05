@@ -43,6 +43,17 @@ class Board
         @board[positionX][positionY].setCarDirection(direction)
     end
 
+    def setActualCarDirection(direction)
+        for i in (1..@columns) do
+            for j in (1..@rows) do
+                if (@board[i][j].isTheWrapperEmpty() == false)
+                    @board[i][j].setCarDirection(direction)
+
+                end
+            end
+        end
+    end
+
     def getCarPositon(positionX, positionY)
         return @board[positionX][positionY].getDirection()
     end
@@ -61,5 +72,7 @@ class Board
         end
         return false
     end
+
+    # def move()
 
 end
