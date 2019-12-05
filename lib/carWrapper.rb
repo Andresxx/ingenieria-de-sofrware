@@ -4,6 +4,7 @@ class CarWrapper
         @positionX = positionX
         @positionY = positionY
         @isempty = isempty
+        @direction = ''
     end
 
     def getpositionX
@@ -20,6 +21,19 @@ class CarWrapper
 
     def isTheWrapperEmpty
         return @isempty
+    end
+
+    def setCarDirection(direction)
+        @isempty = false
+        @direction = direction
+    end
+
+    def getDirection()
+        return @direction
+    end
+
+    def getFinalPosition()
+        return (@positionX).to_s + "-" + (@positionX).to_s + '-' + 'arriba'
     end
 
 end
