@@ -15,6 +15,10 @@ class CarWrapper
         return @positionY
     end
 
+    def getCarDirection
+        return (@positionX).to_s + "-" + (@positionX).to_s
+    end
+
     def changeWrapperStatus(status)
         @isempty = status
     end
@@ -22,6 +26,7 @@ class CarWrapper
     def isTheWrapperEmpty
         return @isempty
     end
+
 
     def setCarDirection(direction)
         @isempty = false
@@ -32,8 +37,18 @@ class CarWrapper
         return @direction
     end
 
+    def activate(dir)
+        @direction = dir
+        @isempty = false
+    end
+
+    def clearData()
+        @direction = ''
+        @isempty = true
+    end
+
     def getFinalPosition()
-        return (@positionX).to_s + "-" + (@positionX).to_s + '-' + 'arriba'
+        return (@positionX).to_s + "-" + (@positionX).to_s + '-' + @direction
     end
 
 end
