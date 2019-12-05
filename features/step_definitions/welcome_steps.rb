@@ -10,7 +10,3 @@ Then("deberia hacer click en el boton {string}") do |start|
   
   expect(page).to have_content(start)
 end
-
-# Then("deberia ver el boton {string}") do |start|
-#   click_on(start).click
-# end

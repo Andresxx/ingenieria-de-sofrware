@@ -29,7 +29,7 @@ describe 'Pruebas para posicionar un auto' do
 
     before :each do |single|
         @board = Board.new(7, 7)
-        @board.setPostionForCar(5, 5)
+        @board.setPostionForCar(5, 5, 'arriba')
     end
     
     it "deberia haber un auto en la posicion 5-5" do
@@ -41,15 +41,32 @@ describe 'Pruebas para mover un auto desde la posicion 1-1' do
 
     before :each do |single|
         @board = Board.new(7, 7)
-        @board.setPostionForCar(1, 1)
+        @board.setPostionForCar(1, 1, 'arriba')
     end
     
     it "deberia haber un auto en la posicion 1-1" do
         expect(@board.isSlotEmpty(1,1)).to eq false
     end
 
-    # it "el auto deberia estar estar en la posicon 2-1 si subimos" do
-    #     expect(@board.isSlotEmpty(1,1)).to eq false
-    # end
+    it "el auto deberia estar mirando arriba" do
+        expect(@board.getCarPositon(1,1)).to eq 'arriba'
+    end
+end
+
+
+describe 'Pruebas para encontrar la posicion final de un auto' do
+
+    before :each do |single|
+        @board = Board.new(7, 7)
+        @board.setPostionForCar(1, 1, 'arriba')
+    end
+
+    it "el auto deberia estar mirando arriba" do
+        expect(@board.getCarPositon(1,1)).to eq 'arriba'
+    end
+    
+    it "deberia encontar un auto en la posicion '1 1 arriba'" do
+        expect(@board.getCarFinalPosition()).to eq '1-1-arriba'
+    end
 end
     

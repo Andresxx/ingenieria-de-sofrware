@@ -29,8 +29,23 @@ class Board
         @board[colum + row].isTheWrapperEmpty()
     end
 
-    def setPostionForCar(positionX, positionY)
-        @board[positionX + positionY].changeWrapperStatus(false)
+    def setPostionForCar(positionX, positionY, direction)
+        @board[positionX + positionY].setCarDirection(direction)
+    end
+
+    def getCarPositon(positionX, positionY)
+        return @board[positionX + positionY].getDirection()
+    end
+
+    def getCarFinalPosition()
+        for i in (1..@columns) do
+            for j in (1..@rows) do
+                if(@board[i + j].isTheWrapperEmpty()) then
+                    return @board[i + j].getFinalPosition()
+                end
+            end
+        end
+        return false
     end
 
 end
