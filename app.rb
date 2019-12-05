@@ -6,8 +6,8 @@ class App < Sinatra::Base
         erb :home
     end
 
-    get '/game' do
-        erb :game
+    get '/form' do
+        erb :form
     end
 
     post '/Generar' do
