@@ -15,6 +15,10 @@ class CarWrapper
         return @positionY
     end
 
+    def getCarDirection
+        return (@positionX).to_s + "-" + (@positionX).to_s
+    end
+
     def changeWrapperStatus(status)
         @isempty = status
     end
@@ -33,7 +37,7 @@ class CarWrapper
     end
 
     def getFinalPosition()
-        return (@positionX).to_s + "-" + (@positionX).to_s + '-' + 'arriba'
+        return (@positionX).to_s + "-" + (@positionX).to_s + '-' + @direction
     end
 
 end
