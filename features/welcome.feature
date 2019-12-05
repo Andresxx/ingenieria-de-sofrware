@@ -9,4 +9,4 @@ Feature:
 
     Scenario: ver el boton para iniciar
     Given visito la pagina principal
-    Then deberia ver el boton "Iniciar"
+    Then deberia hacer click en el boton "Iniciar"

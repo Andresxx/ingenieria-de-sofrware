@@ -3,9 +3,14 @@ Given("visito la pagina principal") do
 end
 
 Then("deberia ver el mensaje {string}") do |message|
-  body.shoud =~ /#{message}/m
+  expect(page).to have_content(message)
 end
 
-Then("deberia ver el boton {string}") do |start|
-  click_on(start).click
+Then("deberia hacer click en el boton {string}") do |start|
+  
+  expect(page).to have_button(start)
 end
+
+# Then("deberia ver el boton {string}") do |start|
+#   click_on(start).click
+# end
