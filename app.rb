@@ -6,14 +6,15 @@ class App < Sinatra::Base
         erb :home
     end
 
-    get '/game' do
-        erb :game
+    get '/form' do
+        erb :form
     end
 
-    post '/Generar' do
-        @size = params[:size]
-        @positionX = params[:positionX]
-        @positionY = params[:positionY]
+    get '/game' do
+        @size = params[:Size]
+        @FinalPositionX = params[:PositionX]
+        @FinalPositionY = params[:PositionY]
+        erb :game
     end
     
 end
