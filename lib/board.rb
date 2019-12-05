@@ -5,14 +5,15 @@ class Board
     def initialize(rows, columns)
         @rows = rows
         @columns = columns
-        @board = Array[]
+        @board = Array.new(columns,[])
         initializeBoard()
     end
 
     def initializeBoard()
         for i in (1..@columns) do
             for j in (1..@rows) do
-                @board.push(CarWrapper.new(i, j, true))
+                @board[i].push(CarWrapper.new(i,j,true))
+                # @board.push(CarWrapper.new(i, j, true))
             end
         end
     end
