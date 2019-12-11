@@ -22,25 +22,25 @@ class Robot
         return (@coordinateX).to_s + "-" + (@coordinateY).to_s + '-' + @direction
     end
 
-    def setDirection(newDirection)
-        @direction = newDirection
-    end
+    # def setDirection(newDirection)
+    #     @direction = newDirection
+    # end
 
     def move()
         case @direction
-        when 'arriba'
+        when 'N'
             if @coordinateY > 0
                 @coordinateY = @coordinateY  - 1
             end
-        when 'abajo'
+        when 'S'
             if (@rows -1) > @coordinateY
                 @coordinateY = @coordinateY  + 1
             end
-        when 'derecha'
+        when 'E'
             if (@cols -1) > @coordinateX 
                 @coordinateX = @coordinateX  + 1
             end
-        when 'izquierda'
+        when 'O'
             if @coordinateX > 0
                 @coordinateX = @coordinateX  - 1
             end
