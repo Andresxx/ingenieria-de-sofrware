@@ -26,11 +26,6 @@ end
 
 describe 'Pruebas movimiento de un robot' do
 
-    # it "Una vez que se cambia la posicion esta deberia ser 'O'" do
-    #     @robot = Robot.new(3, 3, 'E',5,5)
-    #     @robot.setDirection('O')
-    #     expect(@robot.getDirection()).to eq 'O'
-    # end
 
     it "Un robot creado en la posicion '3-3-E' deberia estar en la posicon '4-3-E' si lo movemos una vez" do
         @robot = Robot.new(3, 3, 'E',5,5)
@@ -79,6 +74,22 @@ describe 'Pruebas movimiento de un robot' do
         @robot.move()
         expect(@robot.getFinalPosition()).to eq '2-4-S'
     end
+end
 
+describe 'Pruebas para crear un robot en el tablero' do
+
+    it "Deberia cambiar de '2-2-E' a '2-2-O' si se rota dos veces a la izquirda" do
+        @robot = Robot.new(2, 2, 'E',5,5)
+        @robot.rotate('I')
+        @robot.rotate('I')
+        expect(@robot.getFinalPosition()).to eq '2-2-O'
+    end
+
+    it "Deberia cambiar de '2-2-N' a '2-2-O' si se rota dos veces a la dercha" do
+        @robot = Robot.new(2, 2, 'E',5,5)
+        @robot.rotate('D')
+        @robot.rotate('D')
+        expect(@robot.getFinalPosition()).to eq '2-2-O'
+    end
 
 end

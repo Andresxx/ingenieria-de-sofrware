@@ -43,6 +43,4 @@ describe 'Pruebas para crear un robot en el tablero' do
         @board.createNewRobot(2,2,'E')
         expect(@board.moveRobot(1)).to eq 'no-robot'
     end
-
-
 end

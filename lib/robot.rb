@@ -22,9 +22,34 @@ class Robot
         return (@coordinateX).to_s + "-" + (@coordinateY).to_s + '-' + @direction
     end
 
-    # def setDirection(newDirection)
-    #     @direction = newDirection
-    # end
+    def setDirection(newDirection)
+        @direction = newDirection
+    end
+
+    def gerNewDirection(direction)
+        leftMap = {
+            'N' => 'O',
+            'O' => 'S',
+            'S' => 'E',
+            'E' => 'N',
+        }
+        rightMap = {
+            'N' => 'E',
+            'E' => 'S',
+            'S' => 'O',
+            'O' => 'N',
+        }
+        if direction == 'I'
+            return leftMap[@direction]
+        end
+        if direction == 'D'
+            return rightMap[@direction]
+        end
+    end
+
+    def rotate(direction)
+        setDirection(gerNewDirection(direction))
+    end
 
     def move()
         case @direction
