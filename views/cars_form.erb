@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel=”stylesheet” href=”styles.css” type=”text/css” />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <form method="post" action="/game">
+        <div class="form-group">
+            <%=@number_of_players%>
+
+            <br>
+            <label>Automoviles</label>
+            <br>
+            <% for index in 1..@number_of_players.to_i %>
+            <div class="form-group col-md-4">
+                <label for="sizes">Posicion Inicial Vertical</label>
+                <input id="firstPositionY<%=index%>" name="firstPositionY<%=index%>" type="text" class="form-control"
+                    placeholder="Posicion Inicial Y">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="sizes">Posicion Inicial Horizontal</label>
+                <input id="firstPositionY<%=index%>" name="firstPositionY<%=index%>" type="text" class="form-control"
+                    placeholder="Posicion Inicial X">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="sizes">Direccion</label>
+                <input id="direction<%=index%>" name="direction<%=index%>" type="text" class="form-control"
+                    placeholder="Direccion">
+            </div>
+            <% end %>
+        </div>
+        <input class="btn btn-primary pull-right" type="submit" name="Jugar" id="Jugar" value="Jugar">
+    </form>
+</body>
+
+</html>

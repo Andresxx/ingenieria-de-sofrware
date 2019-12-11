@@ -33,5 +33,13 @@ class Board
             @listOfRobots[position].move()
         end
         return 'no-robot'
+    end
+
+    def rotateRobot(roborNumber)
+        if (@listOfRobots.length >= roborNumber) && (roborNumber > 0)
+            position = roborNumber - 1
+            @listOfRobots[position].rotate()
+        end
+        return 'no-robot'
     end 
 end

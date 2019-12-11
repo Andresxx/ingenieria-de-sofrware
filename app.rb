@@ -9,7 +9,7 @@ class App < Sinatra::Base
     end
 
     get '/form' do
-        @number_of_players = $number_of_players
+        # @number_of_players = params[:players]
         erb :form
     end
 
@@ -20,8 +20,13 @@ class App < Sinatra::Base
         erb :game
     end
 
-    post '/numberOfPlayers' do
+    get '/players' do
         $number_of_players = params[:players]
-        redirect "/form"
+        erb :cars_form
     end
+
+    # get '/numberOfPlayers' do
+    #     $number_of_players = params[:players]
+    #     redirect "/form"
+    # end
 end
