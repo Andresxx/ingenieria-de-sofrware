@@ -26,21 +26,46 @@ class Robot
         @direction = newDirection
     end
 
+    def gerNewDirection(direction)
+        leftMap = {
+            'N' => 'O',
+            'O' => 'S',
+            'S' => 'E',
+            'E' => 'N',
+        }
+        rightMap = {
+            'N' => 'E',
+            'E' => 'S',
+            'S' => 'O',
+            'O' => 'N',
+        }
+        if direction == 'I'
+            return leftMap[@direction]
+        end
+        if direction == 'D'
+            return rightMap[@direction]
+        end
+    end
+
+    def rotate(direction)
+        setDirection(gerNewDirection(direction))
+    end
+
     def move()
         case @direction
-        when 'arriba'
+        when 'N'
             if @coordinateY > 0
                 @coordinateY = @coordinateY  - 1
             end
-        when 'abajo'
+        when 'S'
             if (@rows -1) > @coordinateY
                 @coordinateY = @coordinateY  + 1
             end
-        when 'derecha'
+        when 'E'
             if (@cols -1) > @coordinateX 
                 @coordinateX = @coordinateX  + 1
             end
-        when 'izquierda'
+        when 'O'
             if @coordinateX > 0
                 @coordinateX = @coordinateX  - 1
             end
