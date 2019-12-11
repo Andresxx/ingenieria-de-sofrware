@@ -1,13 +1,67 @@
-<h1>Creation Form</h1>
-<form method="post" action="game">
-    <div>
-        Size del tablero: <input type="number" name="Size">
-    </div>
-    <div>
-        PositionX del robot: <input type="number" name="PositionX">
-    </div>
-    <div>
-        PositionY del robot: <input type="number" name="PostionY">
-    </div>
-    <a class="button" href="/game">Create</a>
-</form>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel=”stylesheet” href=”styles.css” type=”text/css” />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-primary" style = "text-align: center">
+            <h1>DriveClub</h1>
+        </nav>
+        <div class="container" style="position: absolute; left: 500px; top: 150px">
+            <h1>Menu Principal</h1>
+
+            <div class="form-group col-md-6">
+            <label for="sizes">Tamaño Vertical</label> 
+                <input id ="Xsize" name="Ysize" type="text" class="form-control" placeholder="Tamaño Vertical">
+            </div>
+            <div class="form-group col-md-6"> 
+            <label for="sizes">Tamaño Horizontal</label> 
+                <input id ="Xsize" name="Xsize" type="text" class="form-control" placeholder="Tamaño Horizontal">
+            </div>
+
+            <form method = "post" action="/numberOfPlayers">
+                <label for="sizes">Cantidad de jugadores</label> 
+                <br>
+                <div class="form-group col-md-6">
+                    <select name="players" id = "players" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <button class="btn btn-primary" type="submit" name="playersSize" id="playersSize" value="Cambiar cantidad de jugadores">Cambiar cantidad de jugadores</button>
+                </div> 
+            </form>
+
+            <form method = "post" action="/game">
+                <div class="form-group">
+                    
+                    <br>    
+                    <label>Automoviles</label>
+                    <br>
+                    <% for index in 1..@number_of_players.to_i %>
+                        <div class="form-group col-md-4">
+                        <label for="sizes">Posicion Inicial Vertical</label> 
+                            <input id ="firstPositionY<%=index%>" name="firstPositionY<%=index%>" type="text" class="form-control" placeholder="Posicion Inicial Y">
+                        </div>
+                        <div class="form-group col-md-4">
+                        <label for="sizes">Posicion Inicial Horizontal</label> 
+                            <input id ="firstPositionY<%=index%>" name="firstPositionY<%=index%>" type="text" class="form-control" placeholder="Posicion Inicial X">
+                        </div>
+                        <div class="form-group col-md-4">
+                        <label for="sizes">Direccion</label> 
+                            <input id ="direction<%=index%>" name="direction<%=index%>" type="text" class="form-control" placeholder="Direccion">
+                        </div>
+                    <% end %>
+                </div>
+                <input class="btn btn-primary pull-right" type="submit" name="Jugar" id="Jugar" value="Jugar">
+            </form>
+        </div>
+    </body>
+</html>
+
