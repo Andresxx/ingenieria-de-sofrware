@@ -71,4 +71,21 @@ class Robot
             end
         end
     end
+
+    def robotMovement(moves)
+        if moves.is_a? String
+            moves = moves.upcase
+            cont = 0
+            for cont in 0..moves.length do
+                case moves[cont]
+                when 'I'
+                    rotate('I')
+                when 'D'
+                    rotate('D')
+                when 'A'
+                    move()
+                end
+            end
+        end
+    end
 end
