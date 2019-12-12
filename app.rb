@@ -21,12 +21,12 @@ class App < Sinatra::Base
     end
 
     get '/players' do
-        $number_of_players = params[:players]
+        @number_of_players = $number_of_players
         erb :cars_form
     end
 
-    # get '/numberOfPlayers' do
-    #     $number_of_players = params[:players]
-    #     redirect "/form"
-    # end
+    post '/numberOfPlayers' do
+        $number_of_players = params[:players]
+        redirect "/players"
+    end
 end

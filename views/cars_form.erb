@@ -9,33 +9,37 @@
 </head>
 
 <body>
-    <form method="post" action="/game">
-        <div class="form-group">
-            <%=@number_of_players%>
+    <nav class="navbar navbar-dark bg-primary" style="text-align: center">
+        <h1>DriveClub</h1>
+    </nav>
+    <div class="container" style="position: absolute; left: 500px; top: 150px">
+        <form method="post" action="/game">
+            <div class="form-group">
 
-            <br>
-            <label>Automoviles</label>
-            <br>
-            <% for index in 1..@number_of_players.to_i %>
-            <div class="form-group col-md-4">
-                <label for="sizes">Posicion Inicial Vertical</label>
-                <input id="firstPositionY<%=index%>" name="firstPositionY<%=index%>" type="text" class="form-control"
-                    placeholder="Posicion Inicial Y">
+                <br>
+                <label>Automoviles</label>
+                <br>
+                <% for index in 1..@number_of_players.to_i %>
+                <div class="form-group col-md-4">
+                    <label for="sizes">Posicion Inicial Vertical</label>
+                    <input id="firstPositionY<%=index%>" name="firstPositionY<%=index%>" type="text" class="form-control"
+                        placeholder="Posicion Inicial Y">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="sizes">Posicion Inicial Horizontal</label>
+                    <input id="firstPositionY<%=index%>" name="firstPositionY<%=index%>" type="text" class="form-control"
+                        placeholder="Posicion Inicial X">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="sizes">Direccion</label>
+                    <input id="direction<%=index%>" name="direction<%=index%>" type="text" class="form-control"
+                        placeholder="Direccion">
+                </div>
+                <% end %>
             </div>
-            <div class="form-group col-md-4">
-                <label for="sizes">Posicion Inicial Horizontal</label>
-                <input id="firstPositionY<%=index%>" name="firstPositionY<%=index%>" type="text" class="form-control"
-                    placeholder="Posicion Inicial X">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="sizes">Direccion</label>
-                <input id="direction<%=index%>" name="direction<%=index%>" type="text" class="form-control"
-                    placeholder="Direccion">
-            </div>
-            <% end %>
-        </div>
-        <input class="btn btn-primary pull-right" type="submit" name="Jugar" id="Jugar" value="Jugar">
-    </form>
+            <input class="btn btn-primary pull-right" type="submit" name="Jugar" id="Jugar" value="Jugar">
+        </form>
+    </div>
 </body>
 
 </html>
