@@ -1,6 +1,6 @@
 require 'sinatra'
 
-class App < Sinatra::Base
+# class App < Sinatra::Base
 
     $number_of_players = 1
 
@@ -29,4 +29,4 @@ class App < Sinatra::Base
         $number_of_players = params[:players]
         redirect "/players"
     end
-end
+# end

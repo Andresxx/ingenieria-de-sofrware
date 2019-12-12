@@ -1,19 +1,29 @@
-require File.join(File.dirname(__FILE__), '..', '..', 'app.rb')
+require 'simplecov'
+SimpleCov.start
+# Sinatra
+require File.join(File.dirname(__FILE__), *%w[.. .. app])
+# Force the application name because polyglot breaks the auto-detection logic.
+Sinatra::Application.app_file = File.join(File.dirname(__FILE__), *%w[.. .. app.rb])
 
-require 'capybara'
-require 'capybara/cucumber'
-require 'rspec'
+require 'rspec/expectations'
+require 'rack/test'
+require 'webrat'
 
-Capybara.app = App
-
-class Helpers
-
-	include Capybara::DSL
-
-	def app
-	  Sinatra::Application
-	end
-
+Webrat.configure do |config|
+  config.mode = :rack
 end
 
-World{Helpers.new}
+class MyWorld
+  include Rack::Test::Methods
+  include Webrat::Methods
+  include Webrat::Matchers
+
+  Webrat::Methods.delegate_to_session :response_code, :response_body
+
+  def app
+    Sinatra::Application
+  end
+end
+
+World{MyWorld.new}
+
