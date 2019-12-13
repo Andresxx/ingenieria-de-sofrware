@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <style type=“text/css”>
+        form:invalid>#submit {
+            pointer-events: none;
+            }
+    </style> 
 </head>
 
 <body>
@@ -18,11 +23,11 @@
 
             <div class="form-group col-md-6">
                 <label for="sizes">Tamaño Vertical</label>
-                <input id="sizeY" name="sizeY" type="text" class="form-control" placeholder="Tamaño Vertical">
+                <input id="sizeY" name="sizeY" type="text" class="form-control" placeholder="Tamaño Vertical" pattern="^[0-9]+" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="sizes">Tamaño Horizontal</label>
-                <input id="sizeX" name="sizeX" type="text" class="form-control" placeholder="Tamaño Horizontal">
+                <input id="sizeX" name="sizeX" type="text" class="form-control" placeholder="Tamaño Horizontal" pattern="^[0-9]+" required>
             </div>
 
             <label for="sizes">Cantidad de jugadores</label>

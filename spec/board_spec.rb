@@ -29,6 +29,7 @@ describe 'Pruebas para crear un robot en el tablero' do
 
     it "No deberia haber un segundo robot en la posicion final '2-2-E'" do
         @board.createNewRobot(2,2,'E')
+        @board.getListOfRobots()
         expect(@board.getRobotFinalPosition(5)).to eq 'no-robot'
     end
 
@@ -43,6 +44,7 @@ describe 'Pruebas para crear un robot en el tablero' do
         @board.createNewRobot(2,2,'E')
         expect(@board.moveRobot(1)).to eq 'no-robot'
     end
+
 end
 
 
@@ -72,6 +74,11 @@ describe 'Pruebas para mover un robot en el tablero' do
     it "Al mover una vez el robot deberia darme '3-2-E'" do
         @board.moveRobot(1)
         expect(@board.getRobotFinalPosition(1)).to eq '3-2-E'
+    end
+
+    it "Mover al robot con una serie de moviminetos '3-2-E'" do
+        @board.robotSingleMove(1,'AA')
+        expect(@board.getRobotFinalPosition(1)).to eq '4-2-E'
     end
 
 
