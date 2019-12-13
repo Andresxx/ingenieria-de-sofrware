@@ -6,7 +6,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type=“text/css”>
+        form:invalid>#submit {
+            pointer-events: none;
+            }
+    </style> 
 </head>
+
+
 
 <body>
     <nav class="navbar navbar-dark bg-primary" style="text-align: center">
@@ -23,22 +30,22 @@
                 <div class="form-group col-md-3">
                     <label for="sizes">Posicion Inicial Vertical</label>
                     <input id="firstPositionY<%=index%>" name="firstPositionY<%=index%>" type="text" class="form-control"
-                        placeholder="Posicion Inicial Y">
+                        placeholder="Posicion Inicial Y" pattern="^[0-9]+" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="sizes">Posicion Inicial Horizontal</label>
                     <input id="firstPositionX<%=index%>" name="firstPositionX<%=index%>" type="text" class="form-control"
-                        placeholder="Posicion Inicial X">
+                        placeholder="Posicion Inicial X" pattern="^[0-9]+" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="sizes">Direccion</label>
                     <input id="direction<%=index%>" name="direction<%=index%>" type="text" class="form-control"
-                        placeholder="Direccion">
+                        placeholder="Direccion" pattern="^[N,S,E,O]" required>
                 </div>
                 <div class="form-group col-md-3">
                 <label for="sizes">Lista De Movimientos</label>
                 <input id="movesOfRobot<%=index%>" name="movesOfRobot<%=index%>" type="text" class="form-control"
-                    placeholder="Lista De Movimientos">
+                    placeholder="Lista De Movimientos" pattern="^[A,I,D]+" required>
              </div>
                 <% end %>
             </div>
