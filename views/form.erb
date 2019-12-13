@@ -1,13 +1,48 @@
-<h1>Creation Form</h1>
-<form method="post" action="game">
-    <div>
-        Size del tablero: <input type="number" name="Size">
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel=”stylesheet” href=”styles.css” type=”text/css” />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-primary" style="text-align: center">
+        <h1>DriveClub</h1>
+    </nav>
+    <div class="container" style="position: absolute; left: 500px; top: 150px">
+        <!-- <h1>Menu Principal</h1> -->
+        <form method="post" action="/numberOfPlayers">
+
+            <div class="form-group col-md-6">
+                <label for="sizes">Tamaño Vertical</label>
+                <input id="sizeY" name="sizeY" type="text" class="form-control" placeholder="Tamaño Vertical">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="sizes">Tamaño Horizontal</label>
+                <input id="sizeX" name="sizeX" type="text" class="form-control" placeholder="Tamaño Horizontal">
+            </div>
+
+            <label for="sizes">Cantidad de jugadores</label>
+            <br>
+            <div class="form-group col-md-6">
+                <select name="players" id="players" class="form-control">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">Generar jugadores</button>
+            </div>
+        
+        </form>
+
+
     </div>
-    <div>
-        PositionX del robot: <input type="number" name="PositionX">
-    </div>
-    <div>
-        PositionY del robot: <input type="number" name="PostionY">
-    </div>
-    <a class="button" href="/game">Create</a>
-</form>
+</body>
+
+</html>

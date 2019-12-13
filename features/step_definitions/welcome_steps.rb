@@ -1,12 +1,12 @@
 Given("visito la pagina principal") do
-  visit('/')
-end
-
-Then("deberia ver el mensaje {string}") do |message|
-  expect(page).to have_content(message)
-end
-
-Then("deberia hacer click en el boton {string}") do |start|
+    visit '/'
+  end
   
-  expect(page).to have_content(start)
-end
+  Then("deberia ver el mensaje {string}") do |mensaje|
+    last_response.body.should =~ /#{mensaje}/m
+  end
+  
+  Then("deberia ver el boton {string}") do |boton|
+    last_response.body.should =~ /#{boton}/m
+  end
+  

@@ -91,5 +91,23 @@ describe 'Pruebas para crear un robot en el tablero' do
         @robot.rotate('D')
         expect(@robot.getFinalPosition()).to eq '2-2-O'
     end
+end
+
+describe "Pruebas para hacer mover una serie de movimientos al robot dado que esta en pa posicion '2-2-E' " do
+
+    before :each do |single|
+        @robot = Robot.new(2, 2, 'E',5,5)
+    end
+
+    it "Un robot con una serie de moviminentos 'AIIAA' deberia terminar en la posicion '3-2-S'" do
+        @robot.robotMovement('AIIAA')
+        expect(@robot.getFinalPosition()).to eq '1-2-O'
+    end
+
+    it "Un robot con una serie de moviminentos 'AADADDAA' deberia terminar en la posicion '3-2-S'" do
+        @robot.robotMovement('AADADDAA')
+        expect(@robot.getFinalPosition()).to eq '4-1-N'
+    end
+
 
 end

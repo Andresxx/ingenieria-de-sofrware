@@ -1,10 +1,10 @@
 class Robot
-    def  initialize(coordinateX, coordinateY, direction, cols,rows)
+    def initialize(coordinateX, coordinateY, direction, cols,rows)
         @coordinateX = coordinateX
         @coordinateY = coordinateY 
         @direction = direction
-        @cols = cols
-        @rows = rows
+        @cols = cols.to_i
+        @rows = rows.to_i
     end
 
     def getCoordinateX()
@@ -62,12 +62,29 @@ class Robot
                 @coordinateY = @coordinateY  + 1
             end
         when 'E'
-            if (@cols -1) > @coordinateX 
+            if (@cols - 1) > @coordinateX 
                 @coordinateX = @coordinateX  + 1
             end
         when 'O'
             if @coordinateX > 0
                 @coordinateX = @coordinateX  - 1
+            end
+        end
+    end
+
+    def robotMovement(moves)
+        if moves.is_a? String
+            moves = moves.upcase
+            cont = 0
+            for cont in 0..moves.length do
+                case moves[cont]
+                when 'I'
+                    rotate('I')
+                when 'D'
+                    rotate('D')
+                when 'A'
+                    move()
+                end
             end
         end
     end

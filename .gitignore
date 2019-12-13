@@ -1,3 +1,8 @@
+webrat.log
+coverage/
+
+
+
 *.gem
 *.rbc
 /.config

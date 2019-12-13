@@ -19,6 +19,10 @@ class Board
         @listOfRobots.push(Robot.new(coorX,coorY,direction,@cols,@rows))
     end
 
+    def getListOfRobots()
+        return @listOfRobots
+    end
+
     def getRobotFinalPosition(roborNumber)
         if (@listOfRobots.length >= roborNumber) && (roborNumber > 0)
             position = roborNumber - 1
@@ -31,6 +35,22 @@ class Board
         if (@listOfRobots.length >= roborNumber) && (roborNumber > 0)
             position = roborNumber - 1
             @listOfRobots[position].move()
+        end
+        return 'no-robot'
+    end
+
+    def rotateRobot(roborNumber, direction)
+        if (@listOfRobots.length >= roborNumber) && (roborNumber > 0)
+            position = roborNumber - 1
+            @listOfRobots[position].rotate(direction)
+        end
+        return 'no-robot'
+    end
+
+    def robotSingleMove(roborNumber, movements)
+        if (@listOfRobots.length >= roborNumber) && (roborNumber > 0)
+            position = roborNumber - 1
+            @listOfRobots[position].robotMovement(movements)
         end
         return 'no-robot'
     end 
