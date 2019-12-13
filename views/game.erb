@@ -11,14 +11,27 @@
         <h1>DriveClub</h1>
     </nav>
     <div class="container" style="position: absolute; left: 500px; top: 150px">
-        <h1>Game</h1>
+        
 
-        <div>
-        FinalPositionX del robot: <p><%= @FinalPositionX %></p>
+    <form method="get" action="/reset">
+        <div class="form-group">
+            <br>
+            <label>Posiciones Finales</label>
+            <br>
+            <% for index in 0..@finalPositions.length-1 %>
+                <div class="form-group col-md-12">
+                    <label>Robot<%=index + 1%>:  </label>
+                    <label for="sizes"><%=@finalPositions[index]%></label>
+                </div>
+            <% end %>
         </div>
-        <div>
-        FinalPositionY del robot: <label type="number" name="FinalPositionY">
-        </div>
+        <input  class="btn btn-primary pull-right" type="submit" name="JugarDeNuevo" id="JugarDeNuevo" value="Jugar de nuevo">
+    </form>
+
+
+
+
+
     </div>
 
     </body>
