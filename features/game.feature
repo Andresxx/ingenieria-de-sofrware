@@ -1,16 +1,8 @@
-Feature:
-    Como jugador
-    Quiero poder ver la terreno
-    Para poder controlar el movvimiento del auto
+# Feature:
+#     Como jugador
+#     Quiero poder ver la terreno
+#     Para poder ver la posicion final del auto
 
-    Scenario: ver titulo del juego
-    Given visito la interfaz del juego
-    Then deberia ver el mensaje "Game"
-
-    Scenario: ver la posicion final en X del auto
-    Given visito la interfaz del juego
-    Then deberia ver la posicion final "FinalPositionX"
-
-    Scenario: ver la posicion final en Y del auto
-    Given visito la interfaz del juego
-    Then deberia ver la posicion final "FinalPositionY"
+# Scenario: Ver la posicion final de un auto
+#     Given visito la pagina del jugo
+#     # Then deberia ver la etiqueta "Automoviles"

@@ -5,8 +5,8 @@ Feature:
 
     Scenario: ver mensaje de bienvenida
     Given visito la pagina principal
-    Then deberia ver el mensaje "Bienvenido!"
+    Then deberia ver el mensaje "Bienvenido a nuestro juego!"
 
     Scenario: ver el boton para iniciar
     Given visito la pagina principal
-    Then deberia hacer click en el boton "Iniciar"
+    Then deberia ver el boton "Disfrutalo"

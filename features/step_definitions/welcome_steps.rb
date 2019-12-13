@@ -1,11 +1,12 @@
 Given("visito la pagina principal") do
+    visit '/'
+  end
   
-end
-
-Then("deberia ver el mensaje {string}") do |message|
+  Then("deberia ver el mensaje {string}") do |mensaje|
+    last_response.body.should =~ /#{mensaje}/m
+  end
   
-end
-
-Then("deberia hacer click en el boton {string}") do |start|
+  Then("deberia ver el boton {string}") do |boton|
+    last_response.body.should =~ /#{boton}/m
+  end
   
-end
